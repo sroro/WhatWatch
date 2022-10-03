@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2yW-9u-kxP">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movie-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MovieWeekViewController" customModule="WhatWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LWg-h7-Brg">
+                                <rect key="frame" x="0.0" y="127" width="390" height="634"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zcU-eR-ou8">
+                                    <size key="itemSize" width="190" height="250"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="sc9-Im-rcc"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Olq-X0-yYG"/>
+                                </connections>
+                            </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jwi-0W-gOU">
+                                <rect key="frame" x="0.0" y="91" width="390" height="32"/>
+                                <segments>
+                                    <segment title="Movie of Week"/>
+                                    <segment title="Top Movie Ever"/>
+                                    <segment title="Upcoming Movie"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LWg-h7-Brg" secondAttribute="trailing" id="1BU-xT-yv0"/>
+                            <constraint firstItem="jwi-0W-gOU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7Gz-iQ-CFF"/>
+                            <constraint firstItem="jwi-0W-gOU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="D4S-EQ-nSd"/>
+                            <constraint firstItem="LWg-h7-Brg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EJi-Db-XIB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LWg-h7-Brg" secondAttribute="bottom" id="Ekx-7t-CJu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jwi-0W-gOU" secondAttribute="trailing" id="Ojl-zN-beJ"/>
+                            <constraint firstItem="LWg-h7-Brg" firstAttribute="top" secondItem="jwi-0W-gOU" secondAttribute="bottom" constant="5" id="Wg1-TQ-mwL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Movie" id="M0N-eX-l12"/>
+                    <connections>
+                        <outlet property="collectionView" destination="LWg-h7-Brg" id="yhz-3e-72z"/>
+                        <outlet property="segmentControl" destination="jwi-0W-gOU" id="PIt-am-CTC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1906.1538461538462" y="3.5545023696682461"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="hKz-lv-3g8">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2yW-9u-kxP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UZ7-a6-7Cs">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Bxg-WR-1m9" kind="relationship" relationship="viewControllers" id="9W1-p8-13B"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZzA-wB-HJP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47.692307692307693" y="3.5545023696682461"/>
+        </scene>
+        <!--Movie-->
+        <scene sceneID="oKz-ZL-FZX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bxg-WR-1m9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Movie" id="Un8-oI-Pus"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z18-DF-YDY">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="css-ZO-2gs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KKH-Iq-RgC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976.92307692307691" y="3.5545023696682461"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
