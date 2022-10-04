@@ -12,6 +12,8 @@
 		4DC1B46728E9DD890001777A /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1B46628E9DD890001777A /* MovieViewModel.swift */; };
 		4DC1B46A28EAFBA50001777A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4DC1B46928EAFBA50001777A /* SDWebImage */; };
 		4DC1B46C28EB12560001777A /* TopMovieNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1B46B28EB12560001777A /* TopMovieNetwork.swift */; };
+		4DC1B46E28EB1B790001777A /* MovieUpcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1B46D28EB1B790001777A /* MovieUpcoming.swift */; };
+		4DC1B47028EB1FBB0001777A /* DataMovieUpcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1B46F28EB1FBB0001777A /* DataMovieUpcoming.swift */; };
 		4DCB7B8028E854B40026F2EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB7B7F28E854B40026F2EB /* AppDelegate.swift */; };
 		4DCB7B8228E854B40026F2EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB7B8128E854B40026F2EB /* SceneDelegate.swift */; };
 		4DCB7B8428E854B40026F2EB /* MovieWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB7B8328E854B40026F2EB /* MovieWeekViewController.swift */; };
@@ -28,6 +30,8 @@
 		4DC1B46228E9DD660001777A /* MovieDataNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataNetWork.swift; sourceTree = "<group>"; };
 		4DC1B46628E9DD890001777A /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		4DC1B46B28EB12560001777A /* TopMovieNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMovieNetwork.swift; sourceTree = "<group>"; };
+		4DC1B46D28EB1B790001777A /* MovieUpcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUpcoming.swift; sourceTree = "<group>"; };
+		4DC1B46F28EB1FBB0001777A /* DataMovieUpcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMovieUpcoming.swift; sourceTree = "<group>"; };
 		4DCB7B7C28E854B40026F2EB /* WhatWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DCB7B7F28E854B40026F2EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DCB7B8128E854B40026F2EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				4DC1B46028E9DD540001777A /* MovieData.swift */,
 				4DC1B46228E9DD660001777A /* MovieDataNetWork.swift */,
 				4DC1B46B28EB12560001777A /* TopMovieNetwork.swift */,
+				4DC1B46D28EB1B790001777A /* MovieUpcoming.swift */,
+				4DC1B46F28EB1FBB0001777A /* DataMovieUpcoming.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -91,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				4DCB7B9628E855FB0026F2EB /* OtherFiles */,
+				4DCB7B9F28E885410026F2EB /* StoryBoard */,
 				4DC1B46428E9DD6D0001777A /* Model */,
 				4DC1B46528E9DD7A0001777A /* ViewModel */,
 				4DCB7B8328E854B40026F2EB /* MovieWeekViewController.swift */,
@@ -105,7 +112,6 @@
 			children = (
 				4DCB7B7F28E854B40026F2EB /* AppDelegate.swift */,
 				4DCB7B8128E854B40026F2EB /* SceneDelegate.swift */,
-				4DCB7B9F28E885410026F2EB /* StoryBoard */,
 			);
 			path = OtherFiles;
 			sourceTree = "<group>";
@@ -203,11 +209,13 @@
 				4DC1B46128E9DD540001777A /* MovieData.swift in Sources */,
 				4DC1B46C28EB12560001777A /* TopMovieNetwork.swift in Sources */,
 				4DC1B46328E9DD660001777A /* MovieDataNetWork.swift in Sources */,
+				4DC1B47028EB1FBB0001777A /* DataMovieUpcoming.swift in Sources */,
 				4DCB7B8428E854B40026F2EB /* MovieWeekViewController.swift in Sources */,
 				4DC1B46728E9DD890001777A /* MovieViewModel.swift in Sources */,
 				4DCB7B8A28E854B40026F2EB /* WhatWatch.xcdatamodeld in Sources */,
 				4DCB7B9D28E884190026F2EB /* MovieCollectionViewCell.swift in Sources */,
 				4DCB7B8028E854B40026F2EB /* AppDelegate.swift in Sources */,
+				4DC1B46E28EB1B790001777A /* MovieUpcoming.swift in Sources */,
 				4DCB7B8228E854B40026F2EB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,12 +15,14 @@ struct Movie: Decodable, Equatable, Identifiable {
     let title: String
     let overview: String
     let voteAverage: Double
-    let posterPath: String
+    let posterPath: String?
     let releaseDate: String
-    var posterURl: URL { URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath)")!}
+    var posterURl: URL { URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath ?? "https://img.freepik.com/vecteurs-premium/cliquez-vecteur-logo-film_18099-258.jpg")")!}
     
-   
-}
+        
+    }
+
+
 
 struct MovieResponse: Decodable {
     let results : [Movie]
@@ -31,4 +33,5 @@ let jsonDecoder: JSONDecoder = {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     return decoder
 }()
+
 

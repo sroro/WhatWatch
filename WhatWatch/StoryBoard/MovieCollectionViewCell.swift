@@ -47,5 +47,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
             
         }
     }
+    
+  
 
 }

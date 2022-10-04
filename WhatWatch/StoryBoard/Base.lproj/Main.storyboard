@@ -39,6 +39,9 @@
                                     <segment title="Top Movie Ever"/>
                                     <segment title="Upcoming Movie"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlButton:" destination="BYZ-38-t0r" eventType="valueChanged" id="JrJ-R2-LSq"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

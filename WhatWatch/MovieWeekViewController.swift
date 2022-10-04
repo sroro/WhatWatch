@@ -18,6 +18,9 @@ class MovieWeekViewController: UIViewController {
         collectionView.delegate = self
         callMovie()
     }
+    var indexSegmentedControl = Int()
+  
+    var pages = "1"
     
     var movies : [Movie] = [] {
         didSet {
@@ -25,10 +28,43 @@ class MovieWeekViewController: UIViewController {
         }
     }
 
+    @IBAction func segmentedControlButton(_ sender: Any) {
+        
+        indexSegmentedControl = segmentControl.selectedSegmentIndex
+        
+        if indexSegmentedControl == 0 {
+            callMovie()
+        } else if indexSegmentedControl == 1 {
+           callTopRatedMovie()
+        } else {
+            callUpcomingMovie()
+        }
+        
+    }
+    
     func callMovie() {
+        
+        
         Task{
-            movies = await getMovieOfWeek().results
-            await print(getMovieOfWeek().results)
+            while pages < "2" {
+                movies = await getMovieOfWeek(page: pages).results
+                await print(getMovieOfWeek(page: pages).results)
+                collectionView.reloadData()
+            }
+            
+        }
+    }
+    
+    func callTopRatedMovie() {
+        Task{
+            movies = await getTopRatedMovie().results
+           
+        }
+    }
+    
+    func callUpcomingMovie() {
+        Task{
+            movies = await getMovieUpcoming().results
         }
     }
 
@@ -36,14 +72,21 @@ class MovieWeekViewController: UIViewController {
 
 extension MovieWeekViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        
+        movies.count
+      
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as? MovieCollectionViewCell else { return UICollectionViewCell() }
         
         cell.infoMovie = movies[indexPath.row]
+
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("hello")
     }
     
     
