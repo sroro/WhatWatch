@@ -20,7 +20,7 @@ class MovieWeekViewController: UIViewController {
     }
     var indexSegmentedControl = Int()
   
-    var pages = "1"
+    var pages = ["1","2","3","4","5","6","7","8","9","10"]
     
     var movies : [Movie] = [] {
         didSet {
@@ -33,11 +33,14 @@ class MovieWeekViewController: UIViewController {
         indexSegmentedControl = segmentControl.selectedSegmentIndex
         
         if indexSegmentedControl == 0 {
+            movies.removeAll()
             callMovie()
         } else if indexSegmentedControl == 1 {
            callTopRatedMovie()
+            movies.removeAll()
         } else {
             callUpcomingMovie()
+            movies.removeAll()
         }
         
     }
@@ -46,12 +49,11 @@ class MovieWeekViewController: UIViewController {
         
         
         Task{
-            while pages < "2" {
-                movies = await getMovieOfWeek(page: pages).results
-                await print(getMovieOfWeek(page: pages).results)
-                collectionView.reloadData()
-            }
+            for test in pages{
+                
+                await movies.append(contentsOf: getMovieOfWeek(page: test).results)
             
+            }
         }
     }
     
@@ -60,6 +62,7 @@ class MovieWeekViewController: UIViewController {
             movies = await getTopRatedMovie().results
            
         }
+
     }
     
     func callUpcomingMovie() {
