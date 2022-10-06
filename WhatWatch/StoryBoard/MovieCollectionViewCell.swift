@@ -45,6 +45,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
             view.layer.cornerRadius = 10
             imageMovie.layer.cornerRadius = 10
             
+            
         }
     }
     

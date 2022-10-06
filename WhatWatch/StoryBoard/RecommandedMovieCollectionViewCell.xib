@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="otherMovieCell" id="gTV-IL-0wX" customClass="RecommandedMovieCollectionViewCell" customModule="WhatWatch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="130" height="143"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="130" height="143"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hF-e0-z37">
+                        <rect key="frame" x="5" y="60" width="120" height="83"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crj-4Y-SSJ">
+                                <rect key="frame" x="0.0" y="46" width="120" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.44705882349999998" green="0.29803921570000003" blue="0.97254901959999995" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parain copie 13.08.41" translatesAutoresizingMaskIntoConstraints="NO" id="lcA-VH-Ijk">
+                        <rect key="frame" x="20" y="4" width="90" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="aEs-X9-kCY"/>
+                            <constraint firstAttribute="height" constant="100" id="p2T-lu-mi4"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="lcA-VH-Ijk" secondAttribute="trailing" constant="20" id="CXK-Sm-HGa"/>
+                <constraint firstItem="lcA-VH-Ijk" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="E3S-Ya-1Nl"/>
+                <constraint firstItem="2hF-e0-z37" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="60" id="EfZ-aM-gv4"/>
+                <constraint firstItem="lcA-VH-Ijk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="K9c-kq-LTO"/>
+                <constraint firstAttribute="trailing" secondItem="2hF-e0-z37" secondAttribute="trailing" constant="5" id="LJU-kY-pxo"/>
+                <constraint firstItem="2hF-e0-z37" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="adW-c9-mWZ"/>
+                <constraint firstItem="lcA-VH-Ijk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="j0J-CX-S02"/>
+                <constraint firstAttribute="bottom" secondItem="2hF-e0-z37" secondAttribute="bottom" id="vsC-vr-Ukr"/>
+            </constraints>
+            <size key="customSize" width="135" height="150"/>
+            <connections>
+                <outlet property="imageMovie" destination="lcA-VH-Ijk" id="VvS-PP-5Mi"/>
+                <outlet property="titleMovie" destination="crj-4Y-SSJ" id="GBo-XK-ART"/>
+                <outlet property="view" destination="2hF-e0-z37" id="qO6-NH-2t4"/>
+            </connections>
+            <point key="canvasLocation" x="63.076923076923073" y="18.838862559241704"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="parain copie 13.08.41" width="500" height="750"/>
+    </resources>
+</document>
