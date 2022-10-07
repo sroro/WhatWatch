@@ -29,7 +29,7 @@ class PageFilmViewController: UIViewController {
         review.text = String(infosMovie[0].voteAverage)
        
         getMovieRecommanded()
-       
+ 
     }
     
     
@@ -39,20 +39,28 @@ class PageFilmViewController: UIViewController {
         favoriteButton.imageView?.image = UIImage(named: "heart.fill")
         
     }
+    
+    
     @IBAction func youtubeButton(_ sender: Any) {
-        var url = ""
+      
         Task {
-            url =  await getVideoMovie(id: idMovie).results[0].key
-            
-            if let urlYoutube = URL(string: "https://www.youtube.com/watch?v=\(url)") {
-                await UIApplication.shared.open(urlYoutube)
-
+           arrayMovie =  await getVideoMovie(id: idMovie).results
+            if arrayMovie.isEmpty {
+                print("empty")
+            } else {
+                var key = arrayMovie[0].key
+                var youtubeURL = URL(string: "https://www.youtube.com/watch?v=\(key)")!
+                print(youtubeURL)
+               await UIApplication.shared.open(youtubeURL)
             }
         }
-       
+        
         
         
     }
+      
+        
+    
     //MARK: - Outlets
     
     
@@ -73,16 +81,6 @@ class PageFilmViewController: UIViewController {
         }
        
     }
-    
-//    func getMovieVideo(){
-//
-//        Task{
-//            arrayMovie =  await getVideoMovie(id: idMovie).results[0].key
-//            print(arrayMovie)
-//        }
-//
-//    }
-
     
     
 }
