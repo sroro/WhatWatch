@@ -9,6 +9,15 @@ import UIKit
 
 class PageFilmViewController: UIViewController {
 
+
+    
+    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var imageMovie: UIImageView!
+    @IBOutlet weak var overviewMovie: UITextView!
+    @IBOutlet weak var addFavorite: UIButton!
+    @IBOutlet weak var review: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,40 +29,62 @@ class PageFilmViewController: UIViewController {
         review.text = String(infosMovie[0].voteAverage)
        
         getMovieRecommanded()
+       
     }
     
-  
-
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var imageMovie: UIImageView!
-    @IBOutlet weak var overviewMovie: UITextView!
-    @IBOutlet weak var addFavorite: UIButton!
-    @IBOutlet weak var review: UILabel!
     
+    // MARK: - IbActions
     @IBAction func addFavorite(_ sender: Any) {
         print("hello")
+        favoriteButton.imageView?.image = UIImage(named: "heart.fill")
+        
     }
     @IBAction func youtubeButton(_ sender: Any) {
-        if let url = URL(string: "https://youtube.com") {
-            UIApplication.shared.open(url)
+        var url = ""
+        Task {
+            url =  await getVideoMovie(id: idMovie).results[0].key
             
+            if let urlYoutube = URL(string: "https://www.youtube.com/watch?v=\(url)") {
+                await UIApplication.shared.open(urlYoutube)
+
+            }
         }
+       
+        
+        
     }
-  
+    //MARK: - Outlets
+    
+    
     var infosMovie = [Movie]()
     var arrayMovieRecommanded = [Movie]()
+    var arrayMovie =  [Result]()
     var idMovie = Int()
+    
+    
+    //MARK: - Methods
+    
     
     func getMovieRecommanded() {
         idMovie = infosMovie[0].id
         Task{
             arrayMovieRecommanded = await getRecommandedMovie(movieId: idMovie).results
-            
             collectionView.reloadData()
-            
         }
        
     }
+    
+//    func getMovieVideo(){
+//
+//        Task{
+//            arrayMovie =  await getVideoMovie(id: idMovie).results[0].key
+//            print(arrayMovie)
+//        }
+//
+//    }
+
+    
+    
 }
 
 extension PageFilmViewController: UICollectionViewDelegate, UICollectionViewDataSource {

@@ -109,10 +109,10 @@
                                 </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="Um2-Uh-uLh">
-                                <rect key="frame" x="208" y="131" width="150.33333333333337" height="202.33333333333337"/>
+                                <rect key="frame" x="208" y="131" width="152" height="202.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lbq-hZ-1hI">
-                                        <rect key="frame" x="0.0" y="0.0" width="150.33333333333334" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="152" height="34.333333333333336"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Favoris:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxI-EU-SfW">
                                                 <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="34.333333333333336"/>
@@ -121,7 +121,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0j-wz-wDi">
-                                                <rect key="frame" x="99.666666666666686" y="0.0" width="50.666666666666657" height="34.333333333333336"/>
+                                                <rect key="frame" x="99.666666666666686" y="0.0" width="52.333333333333343" height="34.333333333333336"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
                                                     <color key="baseForegroundColor" red="0.44705882349999998" green="0.29803921570000003" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
@@ -132,7 +132,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0uc-Ih-Mum">
-                                        <rect key="frame" x="0.0" y="93.333333333333343" width="98" height="30"/>
+                                        <rect key="frame" x="0.0" y="93.333333333333343" width="128" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extrait:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afs-Ca-VHw">
                                                 <rect key="frame" x="0.0" y="0.0" width="53" height="30"/>
@@ -141,9 +141,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPk-gc-skn">
-                                                <rect key="frame" x="68" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="68" y="0.0" width="60" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="7rO-W4-OHy"/>
                                                     <constraint firstAttribute="height" constant="30" id="OJ7-wk-VBr"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
@@ -157,13 +156,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="LYU-UE-vdx">
-                                        <rect key="frame" x="0.0" y="182.33333333333331" width="150.33333333333334" height="20"/>
+                                        <rect key="frame" x="0.0" y="182.33333333333331" width="152" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zs9-4B-STr">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="N5e-zB-VCo"/>
-                                                    <constraint firstAttribute="width" constant="50" id="b7c-ib-Abj"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="b7c-ib-Abj"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -176,8 +175,8 @@
                                                     <constraint firstAttribute="width" constant="30" id="MUG-vF-ayb"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uH-dY-JlW">
-                                                <rect key="frame" x="92" y="0.0" width="58.333333333333343" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uH-dY-JlW">
+                                                <rect key="frame" x="92" y="0.0" width="60" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -207,7 +206,9 @@
                             <constraint firstItem="qmB-fi-JAR" firstAttribute="top" secondItem="dbu-z4-z2k" secondAttribute="bottom" constant="8" id="Dw4-bn-FN5"/>
                             <constraint firstItem="MdL-nD-hhu" firstAttribute="bottom" secondItem="3eg-sA-TTT" secondAttribute="bottom" id="E0b-9c-pQr"/>
                             <constraint firstItem="qmB-fi-JAR" firstAttribute="leading" secondItem="3eg-sA-TTT" secondAttribute="leading" constant="15" id="FPO-QO-lu8"/>
+                            <constraint firstItem="3eg-sA-TTT" firstAttribute="trailing" secondItem="Um2-Uh-uLh" secondAttribute="trailing" constant="30" id="GaY-BR-2PY"/>
                             <constraint firstItem="3eg-sA-TTT" firstAttribute="trailing" secondItem="dbu-z4-z2k" secondAttribute="trailing" constant="15" id="HA4-NF-L1k"/>
+                            <constraint firstItem="3eg-sA-TTT" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qmB-fi-JAR" secondAttribute="trailing" symbolic="YES" id="LI4-hi-Ckt"/>
                             <constraint firstItem="MdL-nD-hhu" firstAttribute="leading" secondItem="3eg-sA-TTT" secondAttribute="leading" constant="5" id="ZsW-9N-dkO"/>
                             <constraint firstItem="dbu-z4-z2k" firstAttribute="top" secondItem="L8Y-3z-Jwj" secondAttribute="bottom" constant="10" id="ebS-CI-7SN"/>
                             <constraint firstItem="3eg-sA-TTT" firstAttribute="trailing" secondItem="MdL-nD-hhu" secondAttribute="trailing" constant="5" id="jDb-gP-rDD"/>
@@ -225,6 +226,7 @@
                     <connections>
                         <outlet property="addFavorite" destination="u0j-wz-wDi" id="Qrj-2d-v8S"/>
                         <outlet property="collectionView" destination="MdL-nD-hhu" id="Eb4-Aa-Iv1"/>
+                        <outlet property="favoriteButton" destination="u0j-wz-wDi" id="mGO-BL-2Kr"/>
                         <outlet property="imageMovie" destination="L8Y-3z-Jwj" id="r4k-6X-bsW"/>
                         <outlet property="overviewMovie" destination="dbu-z4-z2k" id="kCa-Kg-kKE"/>
                         <outlet property="review" destination="7uH-dY-JlW" id="eLE-1J-RIy"/>
