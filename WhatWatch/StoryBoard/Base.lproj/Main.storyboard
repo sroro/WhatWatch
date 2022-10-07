@@ -221,6 +221,9 @@
                     <navigationItem key="navigationItem" title="title film" id="3ZC-LG-fpQ">
                         <barButtonItem key="leftBarButtonItem" systemItem="reply" id="BMS-F1-1lb">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="returnButton:" destination="Qoh-qA-11d" id="nF5-OS-QwS"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

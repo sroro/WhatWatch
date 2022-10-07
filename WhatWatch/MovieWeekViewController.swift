@@ -58,15 +58,17 @@ class MovieWeekViewController: UIViewController {
     
     func callMovie() {
         Task{
-            for test in pages{
-                await movies.append(contentsOf: getMovieOfWeek(page: test).results)
+            for page in pages{
+                await movies.append(contentsOf: getMovieOfWeek(page: page).results)
             }
         }
     }
     
     func callTopRatedMovie() {
         Task{
-            movies = await getTopRatedMovie().results
+            for page in pages {
+                await movies.append(contentsOf: getTopRatedMovie(page: page).results)
+            }
         }
     }
     

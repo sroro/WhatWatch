@@ -7,9 +7,9 @@
 
 import Foundation
 
-func getTopRatedMovie() async -> MovieResponse {
+func getTopRatedMovie(page:String) async -> MovieResponse {
     
-    let url = URL(string: "https://api.themoviedb.org/3/movie/top_rated?api_key=\(apiKey)&language=fr")!
+    let url = URL(string: "https://api.themoviedb.org/3/movie/top_rated?api_key=\(apiKey)&language=fr&page=\(page)")!
     
     let (data,_) = try! await URLSession.shared.data(from: url)
     

@@ -22,12 +22,7 @@ class PageFilmViewController: UIViewController {
         super.viewDidLoad()
 
         collectionView.register(UINib(nibName: "RecommandedMovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "otherMovieCell")
-        navigationItem.title = infosMovie[0].title
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        overviewMovie.text = infosMovie[0].overview
-        imageMovie.sd_setImage(with: infosMovie[0].posterURl)
-        review.text = String(infosMovie[0].voteAverage)
-       
+        addInfoMovie()
         getMovieRecommanded()
  
     }
@@ -40,23 +35,23 @@ class PageFilmViewController: UIViewController {
         
     }
     
+    @IBAction func returnButton(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
+    }
     
     @IBAction func youtubeButton(_ sender: Any) {
       
         Task {
            arrayMovie =  await getVideoMovie(id: idMovie).results
             if arrayMovie.isEmpty {
-                print("empty")
+                AlertNoExtrait()
             } else {
-                var key = arrayMovie[0].key
-                var youtubeURL = URL(string: "https://www.youtube.com/watch?v=\(key)")!
-                print(youtubeURL)
-               await UIApplication.shared.open(youtubeURL)
+                let key = arrayMovie[0].key
+                let youtubeURL = URL(string: "https://www.youtube.com/watch?v=\(key)")!
+               
+             _ =  await UIApplication.shared.open(youtubeURL)
             }
         }
-        
-        
-        
     }
       
         
@@ -82,6 +77,14 @@ class PageFilmViewController: UIViewController {
        
     }
     
+    func addInfoMovie() {
+        navigationItem.title = infosMovie[0].title
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        overviewMovie.text = infosMovie[0].overview
+        imageMovie.sd_setImage(with: infosMovie[0].posterURl)
+        review.text = String(infosMovie[0].voteAverage)
+        
+    }
     
 }
 
