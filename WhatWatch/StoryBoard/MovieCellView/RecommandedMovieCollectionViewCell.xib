@@ -11,20 +11,31 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="otherMovieCell" id="gTV-IL-0wX" customClass="RecommandedMovieCollectionViewCell" customModule="WhatWatch" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="130" height="143"/>
+            <rect key="frame" x="0.0" y="0.0" width="130" height="151"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="130" height="143"/>
+                <rect key="frame" x="0.0" y="0.0" width="130" height="151"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hF-e0-z37">
-                        <rect key="frame" x="5" y="60" width="120" height="83"/>
+                        <rect key="frame" x="5" y="60" width="120" height="91"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crj-4Y-SSJ">
-                                <rect key="frame" x="0.0" y="46" width="120" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crj-4Y-SSJ">
+                                <rect key="frame" x="3" y="46" width="115" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lwU-mA-r7k">
+                                <rect key="frame" x="3" y="76" width="51" height="4"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3C-as-HQp">
+                                <rect key="frame" x="82" y="68" width="25" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -50,13 +61,15 @@
                 <constraint firstItem="lcA-VH-Ijk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="j0J-CX-S02"/>
                 <constraint firstAttribute="bottom" secondItem="2hF-e0-z37" secondAttribute="bottom" id="vsC-vr-Ukr"/>
             </constraints>
-            <size key="customSize" width="135" height="150"/>
+            <size key="customSize" width="135" height="158"/>
             <connections>
                 <outlet property="imageMovie" destination="lcA-VH-Ijk" id="VvS-PP-5Mi"/>
+                <outlet property="progressView" destination="lwU-mA-r7k" id="lCn-It-mWG"/>
+                <outlet property="reviewLabel" destination="L3C-as-HQp" id="MEV-Mq-EFN"/>
                 <outlet property="titleMovie" destination="crj-4Y-SSJ" id="GBo-XK-ART"/>
                 <outlet property="view" destination="2hF-e0-z37" id="qO6-NH-2t4"/>
             </connections>
-            <point key="canvasLocation" x="63.076923076923073" y="18.838862559241704"/>
+            <point key="canvasLocation" x="63.076923076923073" y="21.682464454976301"/>
         </collectionViewCell>
     </objects>
     <resources>

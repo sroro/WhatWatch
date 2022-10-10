@@ -82,7 +82,7 @@ class PageFilmViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         overviewMovie.text = infosMovie[0].overview
         imageMovie.sd_setImage(with: infosMovie[0].posterURl)
-        review.text = String(infosMovie[0].voteAverage)
+        review.text = String(format: "%.1f", infosMovie[0].voteAverage)
         
     }
     

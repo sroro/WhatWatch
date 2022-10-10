@@ -26,7 +26,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
             guard let review = infoMovie?.voteAverage else { return }
             let closedRange = 4.0...7.0
             titleMovie.text = infoMovie?.title
-            reviewMovie.text = String(review)
+            reviewMovie.text = String(format: "%.1f", review)
             dateMovie.text = infoMovie?.releaseDate
             imageMovie.sd_setImage(with: infoMovie?.posterURl)
             
@@ -52,3 +52,5 @@ class MovieCollectionViewCell: UICollectionViewCell {
   
 
 }
+
+
