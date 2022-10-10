@@ -37,10 +37,21 @@ class PageSerieViewController: UIViewController {
         
     }
     @IBAction func youtubeButton(_ sender: Any) {
+        Task {
+            arrayVideoSerie =  await getVideo(id: idSerie).results
+             if arrayVideoSerie.isEmpty {
+                 AlertNoExtrait()
+             } else {
+                 let key = arrayVideoSerie[0].key
+                 let youtubeURL = URL(string: "https://www.youtube.com/watch?v=\(key)")!
+                
+              _ =  await UIApplication.shared.open(youtubeURL)
+             }
+        }
     }
     
     //MARK: -Properties
-    
+    var arrayVideoSerie = [Result]()
     var infoSerie = [Series]()
     var arraySeriesRecommaned = [Series]()
     var idSerie = Int()
@@ -62,6 +73,12 @@ class PageSerieViewController: UIViewController {
             arraySeriesRecommaned = await getRecommendationSerie(id: idSerie).results
             collectionView.reloadData()
         }
+    }
+    
+    func getVideoSerie() {
+        
+       
+        
     }
 }
 

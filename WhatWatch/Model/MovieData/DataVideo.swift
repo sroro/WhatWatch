@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - MovieVideo
-struct MovieVideo: Decodable {
+struct Video: Decodable {
     let id: Int
     let results: [Result]
 }
