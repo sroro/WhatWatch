@@ -16,6 +16,7 @@ class PageSerieViewController: UIViewController {
         fillSerieInfo()
         getSerieRecommendation()
         collectionView.register(UINib(nibName: "RecommendedSerieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "recommandedSerieCell")
+        favoriteButton.setBackgroundImage(UIImage(named: "heart.fill"), for: .normal)
     }
     
     //MARK: - Outlets
@@ -33,7 +34,8 @@ class PageSerieViewController: UIViewController {
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
     }
-    @IBAction func favoriteButton(_ sender: Any) {
+    @IBAction func favoriteButton(_ sender: UIButton) {
+       
         
     }
     @IBAction func youtubeButton(_ sender: Any) {
