@@ -25,6 +25,9 @@
 		4D880C4F28F4475000462999 /* RecommendedSerieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D880C4D28F4475000462999 /* RecommendedSerieCollectionViewCell.swift */; };
 		4D880C5028F4475000462999 /* RecommendedSerieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D880C4E28F4475000462999 /* RecommendedSerieCollectionViewCell.xib */; };
 		4D880C5228F45A9100462999 /* VideoSerieNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D880C5128F45A9100462999 /* VideoSerieNetwork.swift */; };
+		4D880C5428F5873600462999 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D880C5328F5873600462999 /* CoreDataStack.swift */; };
+		4D880C5728F5A02C00462999 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D880C5628F5A02C00462999 /* CoreDataManager.swift */; };
+		4D880C8628F880FB00462999 /* FavoriteMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D880C8528F880FB00462999 /* FavoriteMediaViewController.swift */; };
 		4DC1B46128E9DD540001777A /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1B46028E9DD540001777A /* MovieData.swift */; };
 		4DC1B46328E9DD660001777A /* MovieOfWeekDataNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1B46228E9DD660001777A /* MovieOfWeekDataNetWork.swift */; };
 		4DC1B46728E9DD890001777A /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1B46628E9DD890001777A /* MovieViewModel.swift */; };
@@ -61,6 +64,9 @@
 		4D880C4D28F4475000462999 /* RecommendedSerieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedSerieCollectionViewCell.swift; sourceTree = "<group>"; };
 		4D880C4E28F4475000462999 /* RecommendedSerieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendedSerieCollectionViewCell.xib; sourceTree = "<group>"; };
 		4D880C5128F45A9100462999 /* VideoSerieNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSerieNetwork.swift; sourceTree = "<group>"; };
+		4D880C5328F5873600462999 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		4D880C5628F5A02C00462999 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		4D880C8528F880FB00462999 /* FavoriteMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMediaViewController.swift; sourceTree = "<group>"; };
 		4DC1B46028E9DD540001777A /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		4DC1B46228E9DD660001777A /* MovieOfWeekDataNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieOfWeekDataNetWork.swift; sourceTree = "<group>"; };
 		4DC1B46628E9DD890001777A /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
@@ -141,11 +147,22 @@
 				4D37092128EF02AB0043FD1A /* PageFilmViewController.swift */,
 				4D0A70DA28F192E000CF498C /* SeriesViewController.swift */,
 				4D0A70E628F42E6E00CF498C /* PageSerieViewController.swift */,
+				4D880C8528F880FB00462999 /* FavoriteMediaViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
 		};
-		4DC1B46428E9DD6D0001777A /* Model */ = {
+		4D880C5528F5873C00462999 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4D880C5328F5873600462999 /* CoreDataStack.swift */,
+				4D880C5628F5A02C00462999 /* CoreDataManager.swift */,
+				4DCB7B8828E854B40026F2EB /* WhatWatch.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		4D880C8428F848D200462999 /* SeriesModel */ = {
 			isa = PBXGroup;
 			children = (
 				4D0A70D628F0D96300CF498C /* SeriesData.swift */,
@@ -153,8 +170,17 @@
 				4D0A70E428F42C6A00CF498C /* TopRatedSeriesNetwork.swift */,
 				4D880C4B28F443B800462999 /* RecommendationSerieNetwork.swift */,
 				4D880C5128F45A9100462999 /* VideoSerieNetwork.swift */,
+			);
+			path = SeriesModel;
+			sourceTree = "<group>";
+		};
+		4DC1B46428E9DD6D0001777A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D880C8428F848D200462999 /* SeriesModel */,
 				4D0A70D228F0497300CF498C /* MovieData */,
 				4D0A70D528F0D93100CF498C /* MovieNetwork */,
+				4D880C5528F5873C00462999 /* CoreData */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,7 +218,6 @@
 				4DC1B46528E9DD7A0001777A /* ViewModel */,
 				4D37092328EF15320043FD1A /* ViewController */,
 				4DCB7B9028E854B50026F2EB /* Info.plist */,
-				4DCB7B8828E854B40026F2EB /* WhatWatch.xcdatamodeld */,
 			);
 			path = WhatWatch;
 			sourceTree = "<group>";
@@ -305,7 +330,9 @@
 				4D880C4C28F443B800462999 /* RecommendationSerieNetwork.swift in Sources */,
 				4D0A70E528F42C6A00CF498C /* TopRatedSeriesNetwork.swift in Sources */,
 				4DC1B46C28EB12560001777A /* TopMovieNetwork.swift in Sources */,
+				4D880C8628F880FB00462999 /* FavoriteMediaViewController.swift in Sources */,
 				4D0A70CA28EF649300CF498C /* RecommandedMovieCollectionViewCell.swift in Sources */,
+				4D880C5728F5A02C00462999 /* CoreDataManager.swift in Sources */,
 				4D0A70CF28F03EDE00CF498C /* VideoMovieNetwork.swift in Sources */,
 				4DC1B46328E9DD660001777A /* MovieOfWeekDataNetWork.swift in Sources */,
 				4DCB7B8428E854B40026F2EB /* MovieWeekViewController.swift in Sources */,
@@ -319,6 +346,7 @@
 				4D0A70D928F0DA1B00CF498C /* PopularSerieNetwork.swift in Sources */,
 				4D0A70E728F42E6E00CF498C /* PageSerieViewController.swift in Sources */,
 				4D0A70D728F0D96400CF498C /* SeriesData.swift in Sources */,
+				4D880C5428F5873600462999 /* CoreDataStack.swift in Sources */,
 				4DCB7B8028E854B40026F2EB /* AppDelegate.swift in Sources */,
 				4DC1B46E28EB1B790001777A /* MovieUpcoming.swift in Sources */,
 				4D0A70CD28EF795D00CF498C /* RecommandedMovieNetwork.swift in Sources */,

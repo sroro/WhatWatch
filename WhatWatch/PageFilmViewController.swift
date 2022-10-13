@@ -8,81 +8,105 @@
 import UIKit
 
 class PageFilmViewController: UIViewController {
-
-
     
-    @IBOutlet weak var favoriteButton: UIButton!
+    //MARK: - Outlets
+    
+
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var imageMovie: UIImageView!
     @IBOutlet weak var overviewMovie: UITextView!
-    @IBOutlet weak var addFavorite: UIButton!
     @IBOutlet weak var review: UILabel!
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
+    @IBOutlet weak var dateSortie: UILabel!
+    //MARK: - Outlets
+    
+    var coreDataManager: CoreDataManager?
+    var infosMovie = [Movie]()
+    var arrayMovieRecommanded = [Movie]()
+    var arrayMovie =  [Result]()
+    var idMovie = Int()
+    var titleMovie = String()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let coredataStack = appdelegate.coreDataStack
+        coreDataManager = CoreDataManager(coreDataStack: coredataStack)
         collectionView.register(UINib(nibName: "RecommandedMovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "otherMovieCell")
         addInfoMovie()
         getMovieRecommanded()
- 
+       
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        titleMovie = infosMovie[0].title
     }
     
     
     // MARK: - IbActions
-    @IBAction func addFavorite(_ sender: Any) {
-        print("hello")
-        favoriteButton.imageView?.image = UIImage(named: "heart.fill")
-        
+    
+    @IBAction func FavoriteBarButton(_ sender: UIBarButtonItem) {
+          
+        switch coreDataManager?.isRegistered(title: titleMovie) {
+        case true:
+            print("hello")
+            favoriteButton.image = UIImage(systemName: "heart")
+        case false:
+            print("tantpis")
+            favoriteButton.image = UIImage(systemName: "heart.fill")
+            coreDataManager?.createMedia(title: infosMovie[0].title, id: Double(infosMovie[0].id), review: infosMovie[0].voteAverage, image: infosMovie[0].posterURl, overview: infosMovie[0].overview, date: infosMovie[0].releaseDate)
+            
+        default: break
+        }
     }
+
     
     @IBAction func returnButton(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func youtubeButton(_ sender: Any) {
-      
+        
         Task {
-           arrayMovie =  await getVideoMovie(id: idMovie).results
+            arrayMovie =  await getVideoMovie(id: idMovie).results
             if arrayMovie.isEmpty {
                 AlertNoExtrait()
             } else {
+                //recuperer la clé du film pour l'ajouter a l'url youtube
                 let key = arrayMovie[0].key
                 let youtubeURL = URL(string: "https://www.youtube.com/watch?v=\(key)")!
-               
-             _ =  await UIApplication.shared.open(youtubeURL)
+                
+                _ =  await UIApplication.shared.open(youtubeURL)
             }
         }
     }
-      
-        
-    
-    //MARK: - Outlets
     
     
-    var infosMovie = [Movie]()
-    var arrayMovieRecommanded = [Movie]()
-    var arrayMovie =  [Result]()
-    var idMovie = Int()
     
+   
     
     //MARK: - Methods
     
-    
+    // appel reseau des films recommandé pour le film cliqué
     func getMovieRecommanded() {
         idMovie = infosMovie[0].id
         Task{
             arrayMovieRecommanded = await getRecommandedMovie(movieId: idMovie).results
             collectionView.reloadData()
         }
-       
+        
     }
     
+    // rempli les informations du film cliqué
     func addInfoMovie() {
         navigationItem.title = infosMovie[0].title
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         overviewMovie.text = infosMovie[0].overview
         imageMovie.sd_setImage(with: infosMovie[0].posterURl)
         review.text = String(format: "%.1f", infosMovie[0].voteAverage)
+        dateSortie.text = infosMovie[0].releaseDate
         
     }
     
@@ -100,7 +124,7 @@ extension PageFilmViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     
-   
+    
     
     
 }

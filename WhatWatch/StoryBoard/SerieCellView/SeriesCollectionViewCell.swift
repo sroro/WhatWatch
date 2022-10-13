@@ -45,4 +45,10 @@ class SeriesCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    
+    var infoFavorite: InfoMedia? {
+        didSet{
+            
+        }
+    }
 }
