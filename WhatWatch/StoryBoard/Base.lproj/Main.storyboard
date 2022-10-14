@@ -145,7 +145,7 @@
         <scene sceneID="Bla-FT-zrP">
             <objects>
                 <navigationController id="bWX-5m-4Tl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favoris" image="star.fill" catalog="system" id="622-aJ-p3F"/>
+                    <tabBarItem key="tabBarItem" title="Favoris" image="heart.fill" catalog="system" id="622-aJ-p3F"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Qn-VO-sh9">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -606,6 +606,7 @@
     <resources>
         <image name="film.fill" catalog="system" width="128" height="93"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="parain copie 13.08.41" width="500" height="750"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="trash" catalog="system" width="117" height="128"/>

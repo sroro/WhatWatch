@@ -46,8 +46,33 @@ class SeriesCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    //MARK: rempli la cell avec les info des films favoris.
+    
     var infoFavorite: InfoMedia? {
         didSet{
+            guard let review = infoFavorite?.review else { return }
+            let closedRange = 4.0...7.0
+            viewCell.backgroundColor = .gray
+            titleSerie.text = infoFavorite?.title
+            releaseDate.text = infoFavorite?.date
+            reviewSerie.text = String(format: "%.1f", review)
+            imageSerie.sd_setImage(with: infoFavorite?.image)
+            
+            if review <= 4.5 {
+                progressView.progressTintColor = .red
+                progressView.progress = Float(review/10)
+            } else if closedRange.contains(review) {
+                progressView.progressTintColor = .orange
+                progressView.progress = Float(review/10)
+            } else {
+                progressView.progressTintColor = .green
+                progressView.progress = Float(review/10)
+
+            }
+            
+            viewCell.layer.cornerRadius = 10
+            imageSerie.layer.cornerRadius = 10
+            
             
         }
     }

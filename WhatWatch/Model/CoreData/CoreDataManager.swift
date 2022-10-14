@@ -43,7 +43,7 @@ final class CoreDataManager {
         coreDataStack.saveContext()
     }
     
-    func deleteMedia() {
+    func deleteAllMedia() {
         medias.forEach { managedObjectContext.delete($0)}
         coreDataStack.saveContext()
         }
@@ -59,5 +59,15 @@ final class CoreDataManager {
         }
         return true
     }
+    
+    func deleteMedia(title:String){
+        let request: NSFetchRequest<InfoMedia> = InfoMedia.fetchRequest()
+        request.predicate = NSPredicate(format: "title == %@", title)
+        guard let infos = try? managedObjectContext.fetch(request) else { return }
+        guard let info = infos.first else { return }
+        managedObjectContext.delete(info)
+        coreDataStack.saveContext()
+    }
+    
     }
 

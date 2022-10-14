@@ -31,7 +31,7 @@ class FavoriteMediaViewController: UIViewController {
     
  
     @IBAction func deleteAll(_ sender: Any) {
-        coreDataManager?.deleteMedia()
+        coreDataManager?.deleteAllMedia()
         collectionView.reloadData()
     }
     
@@ -44,6 +44,7 @@ extension FavoriteMediaViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "serieCell", for: indexPath) as? SeriesCollectionViewCell else { return UICollectionViewCell()}
+        cell.infoFavorite = coreDataManager?.medias[indexPath.row]
         return cell
     }
     

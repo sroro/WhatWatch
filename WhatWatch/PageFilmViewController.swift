@@ -42,6 +42,10 @@ class PageFilmViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         titleMovie = infosMovie[0].title
+        // garder l'icone rempli quand le film est en favoris
+        if coreDataManager?.isRegistered(title: titleMovie) == true {
+            favoriteButton.image = UIImage(systemName: "heart.fill")
+        }
     }
     
     
@@ -51,10 +55,10 @@ class PageFilmViewController: UIViewController {
           
         switch coreDataManager?.isRegistered(title: titleMovie) {
         case true:
-            print("hello")
+            coreDataManager?.deleteMedia(title: titleMovie)
             favoriteButton.image = UIImage(systemName: "heart")
         case false:
-            print("tantpis")
+            
             favoriteButton.image = UIImage(systemName: "heart.fill")
             coreDataManager?.createMedia(title: infosMovie[0].title, id: Double(infosMovie[0].id), review: infosMovie[0].voteAverage, image: infosMovie[0].posterURl, overview: infosMovie[0].overview, date: infosMovie[0].releaseDate)
             
@@ -123,8 +127,9 @@ extension PageFilmViewController: UICollectionViewDelegate, UICollectionViewData
         return arrayMovieRecommanded.count
     }
     
-    
-    
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        <#code#>
+//    }
     
     
 }
