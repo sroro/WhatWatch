@@ -469,34 +469,10 @@
                                 </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="P0O-5p-uiD">
-                                <rect key="frame" x="208" y="143" width="155" height="202.33333333333337"/>
+                                <rect key="frame" x="208" y="143" width="155" height="187.33333333333337"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Srd-f1-v8C">
-                                        <rect key="frame" x="0.0" y="0.0" width="155" height="34.333333333333336"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Favoris:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLN-45-nlb">
-                                                <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="34.333333333333336"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0x-fv-xGG">
-                                                <rect key="frame" x="99.666666666666686" y="0.0" width="55.333333333333343" height="34.333333333333336"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="tintColor" red="0.5450980392" green="0.42352941179999998" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="heart" catalog="system"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="favoriteButton:" destination="RI3-IN-TZX" eventType="touchUpInside" id="28v-Kv-vkB"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xA0-DI-4hl">
-                                        <rect key="frame" x="0.0" y="93.333333333333343" width="128" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extrait:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1F6-38-SRR">
                                                 <rect key="frame" x="0.0" y="0.0" width="53" height="30"/>
@@ -520,7 +496,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="KAL-yQ-vks">
-                                        <rect key="frame" x="0.0" y="182.33333333333331" width="155" height="20"/>
+                                        <rect key="frame" x="0.0" y="89" width="155" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0La-id-uDS">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="20"/>
@@ -542,6 +518,26 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kih-pI-HBt">
                                                 <rect key="frame" x="92" y="0.0" width="63" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Srd-f1-v8C">
+                                        <rect key="frame" x="0.0" y="168" width="155" height="19.333333333333343"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Sortie:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLN-45-nlb">
+                                                <rect key="frame" x="0.0" y="0.0" width="57" height="19.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date de sortie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ru2-Fe-IIC">
+                                                <rect key="frame" x="65" y="0.0" width="90" height="19.333333333333332"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="90" id="Zmb-ax-Hq7"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -589,10 +585,17 @@
                                 <action selector="backButton:" destination="RI3-IN-TZX" id="bdc-se-Ze9"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="qgJ-1e-Znx">
+                            <color key="tintColor" red="0.44705882349999998" green="0.29803921570000003" blue="0.97254901959999995" alpha="0.8071968129" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addFavorite:" destination="RI3-IN-TZX" id="bd3-dI-x4Y"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="aTE-xi-zGF" id="mQ9-d8-pEQ"/>
-                        <outlet property="favoriteButton" destination="A0x-fv-xGG" id="fXI-Qr-op1"/>
+                        <outlet property="dateSortie" destination="Ru2-Fe-IIC" id="cdN-QE-0Bn"/>
+                        <outlet property="favoriteButton" destination="qgJ-1e-Znx" id="1wR-Mr-KkI"/>
                         <outlet property="imageSerie" destination="5EB-Ju-CSP" id="CKt-Kz-KJz"/>
                         <outlet property="overview" destination="Vyk-LA-CSi" id="36Q-Ps-lkw"/>
                         <outlet property="serieReview" destination="Kih-pI-HBt" id="Mon-8g-VT4"/>

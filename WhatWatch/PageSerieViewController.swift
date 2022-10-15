@@ -13,31 +13,64 @@ class PageSerieViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let coredataStack = appdelegate.coreDataStack
+        coreDataManager = CoreDataManager(coreDataStack: coredataStack)
         fillSerieInfo()
         getSerieRecommendation()
         collectionView.register(UINib(nibName: "RecommendedSerieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "recommandedSerieCell")
-        favoriteButton.setBackgroundImage(UIImage(named: "heart.fill"), for: .normal)
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        titleSerie = infoSerie[0].name
+        
+        if coreDataManager?.isRegistered(title: titleSerie) == true {
+            favoriteButton.image = UIImage(systemName: "heart.fill")
+        }
     }
     
     //MARK: - Outlets
     
 
+   
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var imageSerie: UIImageView!
     @IBOutlet weak var overview: UITextView!
     @IBOutlet weak var serieReview: UILabel!
+    @IBOutlet weak var dateSortie: UILabel!
     
+    
+    //MARK: -Properties
+    var coreDataManager: CoreDataManager?
+    var arrayVideoSerie = [Result]()
+    var infoSerie = [Series]()
+    var arraySeriesRecommaned = [Series]()
+    var idSerie = Int()
+    var titleSerie = String()
     
     //MARK: -IBActions
     
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
     }
-    @IBAction func favoriteButton(_ sender: UIButton) {
+    @IBAction func addFavorite(_ sender: Any ) {
        
         
+        switch coreDataManager?.isRegistered(title: titleSerie) {
+        case true:
+            coreDataManager?.deleteMedia(title: titleSerie)
+            favoriteButton.image = UIImage(systemName: "heart")
+        case false:
+            
+            favoriteButton.image = UIImage(systemName: "heart.fill")
+            coreDataManager?.createMedia(title: infoSerie[0].name, id: Double(infoSerie[0].id), review: infoSerie[0].voteAverage, image: infoSerie[0].posterURL, overview: infoSerie[0].overview, date: infoSerie[0].firstAirDate)
+            
+        default: break
+        }
     }
+    
     @IBAction func youtubeButton(_ sender: Any) {
         Task {
             arrayVideoSerie =  await getVideo(id: idSerie).results
@@ -46,17 +79,12 @@ class PageSerieViewController: UIViewController {
              } else {
                  let key = arrayVideoSerie[0].key
                  let youtubeURL = URL(string: "https://www.youtube.com/watch?v=\(key)")!
-                
               _ =  await UIApplication.shared.open(youtubeURL)
              }
         }
     }
     
-    //MARK: -Properties
-    var arrayVideoSerie = [Result]()
-    var infoSerie = [Series]()
-    var arraySeriesRecommaned = [Series]()
-    var idSerie = Int()
+   
     
     //MARK: - Methods
     
