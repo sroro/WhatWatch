@@ -8,7 +8,7 @@
 import UIKit
 
 class SeriesViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -18,7 +18,7 @@ class SeriesViewController: UIViewController {
         getPopularSerie()
     }
     
-    var pages = ["1","2","3","4","5","6","7","8","9"]
+    var numberOfPageAPI = ["1","2","3","4","5","6","7","8","9"]
     var indexSegmentedControl = Int()
     var arraySerieSelected  : [Series] = []
     var series : [Series] = [] {
@@ -41,8 +41,8 @@ class SeriesViewController: UIViewController {
     
     func getPopularSerie() {
         Task{
-            for page in pages {
-               await series.append(contentsOf: getSeriePopular(page: page).results)
+            for page in numberOfPageAPI {
+                await series.append(contentsOf: getSeriePopular(page: page).results)
             }
             
         }
@@ -50,12 +50,12 @@ class SeriesViewController: UIViewController {
     
     func getTopRatedSerie(){
         Task{
-            for page in pages {
+            for page in numberOfPageAPI {
                 await series.append(contentsOf: getTopRatedSeries(page: page).results)
             }
         }
     }
-
+    
 }
 
 extension SeriesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -65,7 +65,7 @@ extension SeriesViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "serieCell", for: indexPath) as? SeriesCollectionViewCell else { return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "serieCell", for: indexPath) as? SeriesCollectionViewCell else { return UICollectionViewCell()}
         
         cell.infoSerie = series[indexPath.row]
         return cell

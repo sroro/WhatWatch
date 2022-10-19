@@ -24,8 +24,8 @@ class PageFilmViewController: UIViewController {
     var infosMovie = [Movie]()
     var arrayMovieRecommanded = [Movie]()
     var arrayMovie =  [Result]()
-    var idMovie = Int()
-    var titleMovie = String()
+    var idMovieSelected = Int()
+    var titleMovieSelected = String()
     
     
     override func viewDidLoad() {
@@ -41,9 +41,9 @@ class PageFilmViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        titleMovie = infosMovie[0].title
+        titleMovieSelected = infosMovie[0].title
         // garder l'icone rempli quand le film est en favoris
-        if coreDataManager?.isRegistered(title: titleMovie) == true {
+        if coreDataManager?.isRegistered(title: titleMovieSelected) == true {
             favoriteButton.image = UIImage(systemName: "heart.fill")
         }
     }
@@ -53,9 +53,9 @@ class PageFilmViewController: UIViewController {
     
     @IBAction func FavoriteBarButton(_ sender: UIBarButtonItem) {
           
-        switch coreDataManager?.isRegistered(title: titleMovie) {
+        switch coreDataManager?.isRegistered(title: titleMovieSelected) {
         case true:
-            coreDataManager?.deleteMedia(title: titleMovie)
+            coreDataManager?.deleteMedia(title: titleMovieSelected)
             favoriteButton.image = UIImage(systemName: "heart")
         case false:
             
@@ -74,7 +74,7 @@ class PageFilmViewController: UIViewController {
     @IBAction func youtubeButton(_ sender: Any) {
         
         Task {
-            arrayMovie =  await getVideoMovie(id: idMovie).results
+            arrayMovie =  await getVideoMovie(id: idMovieSelected).results
             if arrayMovie.isEmpty {
                 AlertNoExtrait()
             } else {
@@ -95,9 +95,9 @@ class PageFilmViewController: UIViewController {
     
     // appel reseau des films recommandé pour le film cliqué
     func getMovieRecommanded() {
-        idMovie = infosMovie[0].id
+        idMovieSelected = infosMovie[0].id
         Task{
-            arrayMovieRecommanded = await getRecommandedMovie(movieId: idMovie).results
+            arrayMovieRecommanded = await getRecommandedMovie(movieId: idMovieSelected).results
             collectionView.reloadData()
         }
         
@@ -126,10 +126,6 @@ extension PageFilmViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrayMovieRecommanded.count
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        <#code#>
-//    }
     
     
 }

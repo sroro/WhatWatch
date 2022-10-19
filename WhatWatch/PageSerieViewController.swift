@@ -8,10 +8,10 @@
 import UIKit
 
 class PageSerieViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coredataStack = appdelegate.coreDataStack
@@ -19,21 +19,21 @@ class PageSerieViewController: UIViewController {
         fillSerieInfo()
         getSerieRecommendation()
         collectionView.register(UINib(nibName: "RecommendedSerieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "recommandedSerieCell")
-       
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        titleSerie = infoSerie[0].name
+        titleSerieSelected = infoSerie[0].name
         
-        if coreDataManager?.isRegistered(title: titleSerie) == true {
+        if coreDataManager?.isRegistered(title: titleSerieSelected) == true {
             favoriteButton.image = UIImage(systemName: "heart.fill")
         }
     }
     
     //MARK: - Outlets
     
-
-   
+    
+    
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var imageSerie: UIImageView!
@@ -46,21 +46,21 @@ class PageSerieViewController: UIViewController {
     var coreDataManager: CoreDataManager?
     var arrayVideoSerie = [Result]()
     var infoSerie = [Series]()
-    var arraySeriesRecommaned = [Series]()
-    var idSerie = Int()
-    var titleSerie = String()
+    var arraySeriesRecommanded = [Series]()
+    var idSerieSelected = Int()
+    var titleSerieSelected = String()
     
     //MARK: -IBActions
     
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
     }
+    
     @IBAction func addFavorite(_ sender: Any ) {
-       
         
-        switch coreDataManager?.isRegistered(title: titleSerie) {
+        switch coreDataManager?.isRegistered(title: titleSerieSelected) {
         case true:
-            coreDataManager?.deleteMedia(title: titleSerie)
+            coreDataManager?.deleteMedia(title: titleSerieSelected)
             favoriteButton.image = UIImage(systemName: "heart")
         case false:
             
@@ -73,18 +73,18 @@ class PageSerieViewController: UIViewController {
     
     @IBAction func youtubeButton(_ sender: Any) {
         Task {
-            arrayVideoSerie =  await getVideo(id: idSerie).results
-             if arrayVideoSerie.isEmpty {
-                 AlertNoExtrait()
-             } else {
-                 let key = arrayVideoSerie[0].key
-                 let youtubeURL = URL(string: "https://www.youtube.com/watch?v=\(key)")!
-              _ =  await UIApplication.shared.open(youtubeURL)
-             }
+            arrayVideoSerie =  await getVideo(id: idSerieSelected).results
+            if arrayVideoSerie.isEmpty {
+                AlertNoExtrait()
+            } else {
+                let key = arrayVideoSerie[0].key
+                let youtubeURL = URL(string: "https://www.youtube.com/watch?v=\(key)")!
+                _ =  await UIApplication.shared.open(youtubeURL)
+            }
         }
     }
     
-   
+    
     
     //MARK: - Methods
     
@@ -98,17 +98,11 @@ class PageSerieViewController: UIViewController {
     }
     
     func getSerieRecommendation() {
-        idSerie = infoSerie[0].id
+        idSerieSelected = infoSerie[0].id
         Task{
-            arraySeriesRecommaned = await getRecommendationSerie(id: idSerie).results
+            arraySeriesRecommanded = await getRecommendationSerie(id: idSerieSelected).results
             collectionView.reloadData()
         }
-    }
-    
-    func getVideoSerie() {
-        
-       
-        
     }
 }
 
@@ -117,12 +111,12 @@ class PageSerieViewController: UIViewController {
 extension PageSerieViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arraySeriesRecommaned.count
+        return arraySeriesRecommanded.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommandedSerieCell", for: indexPath) as? RecommendedSerieCollectionViewCell else { return UICollectionViewCell()}
-        cell.infoRecommandedSerie = arraySeriesRecommaned[indexPath.row]
+        cell.infoRecommandedSerie = arraySeriesRecommanded[indexPath.row]
         return cell
     }
     

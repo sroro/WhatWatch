@@ -26,8 +26,8 @@ class MovieWeekViewController: UIViewController {
     var indexSegmentedControl = Int()
     
     // permet de recevoir les 10 pages de l'api TMDB
-    var pages = ["1","2","3","4","5","6","7","8","9","10"]
-    var arrayMovieSelected  : [Movie] = []
+    var numberOfPageAPI = ["1","2","3","4","5","6","7","8","9","10"]
+    var arrayInfoMovieSelected  : [Movie] = []
     var movies : [Movie] = [] {
         didSet {
             collectionView.reloadData()
@@ -58,7 +58,7 @@ class MovieWeekViewController: UIViewController {
     
     func callMovie() {
         Task{
-            for page in pages{
+            for page in numberOfPageAPI{
                 await movies.append(contentsOf: getMovieOfWeek(page: page).results)
             }
         }
@@ -66,7 +66,7 @@ class MovieWeekViewController: UIViewController {
     
     func callTopRatedMovie() {
         Task{
-            for page in pages {
+            for page in numberOfPageAPI {
                 await movies.append(contentsOf: getTopRatedMovie(page: page).results)
             }
         }
@@ -98,8 +98,8 @@ extension MovieWeekViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        arrayMovieSelected.removeAll()
-        arrayMovieSelected.append(movies[indexPath.row])
+        arrayInfoMovieSelected.removeAll()
+        arrayInfoMovieSelected.append(movies[indexPath.row])
         performSegue(withIdentifier: "segueToMovie", sender: nil)
         
     }
@@ -108,7 +108,7 @@ extension MovieWeekViewController: UICollectionViewDelegate, UICollectionViewDat
         
         if segue.identifier == "segueToMovie" {
             let vcDestination = segue.destination as? PageFilmViewController
-            vcDestination?.infosMovie = arrayMovieSelected
+            vcDestination?.infosMovie = arrayInfoMovieSelected
          
         }
     }
