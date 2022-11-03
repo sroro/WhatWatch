@@ -64,6 +64,7 @@ class PageFilmViewController: UIViewController {
             
         default: break
         }
+        print("1- ", coreDataManager?.medias)
     }
 
     

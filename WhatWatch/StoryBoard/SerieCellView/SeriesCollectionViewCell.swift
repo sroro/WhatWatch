@@ -21,6 +21,7 @@ class SeriesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var reviewSerie: UILabel!
     
+    
     var infoSerie: Series? {
         didSet{
             guard let review = infoSerie?.voteAverage else { return }
