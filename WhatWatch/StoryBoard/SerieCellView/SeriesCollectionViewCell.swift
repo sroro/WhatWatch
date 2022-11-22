@@ -53,7 +53,7 @@ class SeriesCollectionViewCell: UICollectionViewCell {
         didSet{
             guard let review = infoFavorite?.review else { return }
             let closedRange = 4.0...7.0
-            viewCell.backgroundColor = .gray
+            viewCell.backgroundColor = UIColor(named: "red")
             titleSerie.text = infoFavorite?.title
             releaseDate.text = infoFavorite?.date
             reviewSerie.text = String(format: "%.1f", review)

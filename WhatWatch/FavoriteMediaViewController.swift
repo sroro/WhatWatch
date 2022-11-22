@@ -22,6 +22,8 @@ class FavoriteMediaViewController: UIViewController {
         print(coreDataManager?.medias.count ?? [])
     }
     
+    var arraySelected = [InfoMedia]()
+    
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
         
@@ -47,6 +49,21 @@ extension FavoriteMediaViewController: UICollectionViewDelegate, UICollectionVie
         cell.infoFavorite = coreDataManager?.medias[indexPath.row]
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let arrayFavoriteSelected = coreDataManager?.medias[indexPath.row] else { return }
+        arraySelected.append(arrayFavoriteSelected)
+        performSegue(withIdentifier: "segueToFavorite", sender: nil)
+      
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToFavorite" {
+            let vcDestination = segue.destination as? FavoriteSelectedViewController
+            vcDestination?.favoriteSelected = arraySelected
+        }
+    }
+    
     
     
 }

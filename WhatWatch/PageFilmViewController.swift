@@ -27,6 +27,8 @@ class PageFilmViewController: UIViewController {
     var idMovieSelected = Int()
     var titleMovieSelected = String()
     
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +66,6 @@ class PageFilmViewController: UIViewController {
             
         default: break
         }
-        print("1- ", coreDataManager?.medias)
     }
 
     

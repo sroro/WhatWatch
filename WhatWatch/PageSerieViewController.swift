@@ -28,6 +28,7 @@ class PageSerieViewController: UIViewController {
         if coreDataManager?.isRegistered(title: titleSerieSelected) == true {
             favoriteButton.image = UIImage(systemName: "heart.fill")
         }
+  
     }
     
     //MARK: - Outlets
@@ -49,6 +50,9 @@ class PageSerieViewController: UIViewController {
     var arraySeriesRecommanded = [Series]()
     var idSerieSelected = Int()
     var titleSerieSelected = String()
+    
+
+
     
     //MARK: -IBActions
     
@@ -104,10 +108,8 @@ class PageSerieViewController: UIViewController {
             collectionView.reloadData()
         }
     }
+    
 }
-
-
-
 extension PageSerieViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
